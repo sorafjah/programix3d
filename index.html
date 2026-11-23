@@ -93,8 +93,15 @@ button{font-family:inherit;color:inherit}
 .menuBtns .btn{min-height:60px;font-size:20px;text-align:left}
 #clearBox{text-align:center}
 #dpad{position:absolute;left:14px;bottom:14px;display:none;grid-template-columns:repeat(3,76px);grid-template-rows:repeat(3,76px);gap:4px;touch-action:none;z-index:3}
-#dpad button{border:none;border-radius:18px;background:rgba(255,255,255,.88);font-size:36px;box-shadow:0 4px 0 rgba(0,0,0,.25);touch-action:none}
-#dpad button.on{background:#ffd54a;transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.ar{display:inline-block;width:1em;height:1em;vertical-align:-.14em;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 22 13h-6.2v8.5H8.2V13H2z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 22 13h-6.2v8.5H8.2V13H2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ar.r{transform:rotate(90deg)}.ar.d{transform:rotate(180deg)}.ar.l{transform:rotate(270deg)}
+.step .ar,.step2 .ar{color:#3b82f6}
+.bars{display:block;width:22px;height:3px;border-radius:2px;background:#444;box-shadow:0 -7px 0 #444,0 7px 0 #444;margin:0 auto}
+#dpad button{border:none;background:transparent;color:#2563eb;font-size:62px;line-height:1;padding:0;touch-action:none;
+  filter:drop-shadow(0 3px 3px rgba(0,40,100,.4))}
+#dpad button.on{color:#ffb000;transform:scale(.9)}
 #dpad [data-k=up]{grid-column:2;grid-row:1}#dpad [data-k=left]{grid-column:1;grid-row:2}
 #dpad [data-k=right]{grid-column:3;grid-row:2}#dpad [data-k=down]{grid-column:2;grid-row:3}
 .chip .sm{font-size:10px;line-height:1.1;text-align:center}
@@ -136,7 +143,7 @@ button{font-family:inherit;color:inherit}
   body.playing{--bottom:0px;--ph:0px;--panel:0px}
   body.playing #tray,body.playing #panel{display:none}
   #dpad{left:8px;bottom:8px;grid-template-columns:repeat(3,58px);grid-template-rows:repeat(3,58px)}
-  #dpad button{font-size:26px;border-radius:14px;background:rgba(255,255,255,.6)}
+  #dpad button{font-size:44px}
   #camBar{left:6px;top:6px;padding:4px 8px;font-size:13px}
   #toast{top:60px;font-size:16px;max-width:92%;text-align:center}
   /* ダイアログ */
@@ -171,10 +178,10 @@ button{font-family:inherit;color:inherit}
 </style>
 </head>
 <body>
-<!-- build: 2026-11-23d -->
+<!-- build: 2026-11-23e -->
 <div id="top">
   <button class="btn" id="helpBtn" aria-label="せつめい">？</button>
-  <button class="btn" id="menuBtn">🗂</button>
+  <button class="btn" id="menuBtn" aria-label="メニュー"><span class="bars"></span></button>
   <div id="title" class="logo" aria-label="プログラミックス3D"></div>
   <div id="score">⭐ 0</div>
   <div class="sp"></div>
@@ -182,37 +189,37 @@ button{font-family:inherit;color:inherit}
   <button class="btn" id="camBtn" aria-label="カメラ">🎥<span class="lbl"> カメラ</span></button>
   <button class="btn" id="playBtn">▶ あそぶ</button>
 </div>
-<div id="stage"><div id="dpad"><button data-k="up">⬆️</button><button data-k="left">⬅️</button><button data-k="right">➡️</button><button data-k="down">⬇️</button></div><div id="camBar">🎥 カメラを うごかせるよ <button class="btn" id="camReset">📍 もとに もどす</button></div></div>
+<div id="stage"><div id="dpad"><button data-k="up" aria-label="うえ"><i class="ar"></i></button><button data-k="left" aria-label="ひだり"><i class="ar l"></i></button><button data-k="right" aria-label="みぎ"><i class="ar r"></i></button><button data-k="down" aria-label="した"><i class="ar d"></i></button></div><div id="camBar">🎥 カメラを うごかせるよ <button class="btn" id="camReset">📍 もとに もどす</button></div></div>
 <div id="tray"></div>
 <div id="panel"></div>
 <div id="toast"></div>
-<div id="ver">v2026-11-23d</div>
+<div id="ver">v2026-11-23e</div>
 
 <div class="ov" id="helpOv"><div class="box">
   <h2 id="helpTitle" class="logo" aria-label="プログラミックス3D"></h2>
   <div class="steps">
     <div class="step"><span class="n">1</span><b>ものを おく</b><div class="pic">🔴 🟫 📐 👉 🟩</div>
       <ruby>下<rt>した</rt></ruby>の たなから ものを ゆびで ひっぱって、ゆかに おこう。つみきは かさねられるよ。</div>
-    <div class="step"><span class="n">2</span><b>プログラムを つくる</b><div class="pic">👆🔴 ➡ 🟨👆 🟦➡️</div>
+    <div class="step"><span class="n">2</span><b>プログラムを つくる</b><div class="pic">👆🔴 → 🟨👆 → 🟦</div>
       おいた ものを タップすると、<ruby>右<rt>みぎ</rt></ruby>に プログラムが でるよ。ブロックを ひっぱって ならべよう。<br>
       <b>はじめは 🟨きっかけ</b>、つぎに 🟦すること。</div>
     <div class="step"><span class="n">3</span><b>あそぶ</b><div class="pic">▶ あそぶ</div>
       「▶ あそぶ」で うごくよ。「■ もどる」で つくる がめんに もどる。うごかした ものは もとの <ruby>場所<rt>ばしょ</rt></ruby>に もどるよ。</div>
     <div class="step"><span class="n">4</span><b>うごかす・けす</b><div class="pic">🔴 ➡ 🗑</div>
       おいた ものを ひっぱると うごかせるよ。🗑 に いれると きえる。ブロックも プログラムの そとに だすと きえるよ。</div>
-    <div class="step" style="grid-column:1/-1"><span class="n">★</span><b>ゲームを つくる</b><div class="pic">🧒 ＋ 🟨⬆️ボタン 🟦⬆️うえへ</div>
-      ヒトに「⬆️ボタン」→「⬆️うえへ」を ならべると、あそぶ ときに でる ⬆️ボタンで うごかせるよ。⬇️⬅️➡️ も つくってみよう。
+    <div class="step" style="grid-column:1/-1"><span class="n">★</span><b>ゲームを つくる</b><div class="pic">🧒 ＋ 🟨<i class="ar"></i>ボタン 🟦<i class="ar"></i>うえへ</div>
+      ヒトに「<i class="ar"></i>ボタン」→「<i class="ar"></i>うえへ」を ならべると、あそぶ ときに でる <i class="ar"></i>ボタンで うごかせるよ。<i class="ar d"></i><i class="ar l"></i><i class="ar r"></i> も つくってみよう。
       🪙コインは ヒトが さわると てんが はいるよ。👻おばけに「💥ぶつかる」→「💀ゲームオーバー」を いれると、てきに なるよ。</div>
     <div class="step"><span class="n">5</span><b>カメラ</b><div class="pic">🎥</div>
       「🎥 カメラ」を おすと、ゆびで みる むきを かえられるよ。もういちど おすと おわり。</div>
     <div class="step"><span class="n">6</span><b>ほぞん</b><div class="pic">💾</div>
-      つくった ものは <ruby>自動<rt>じどう</rt></ruby>で ほぞんされるよ。🗂 で あたらしく つくったり、みほんを ひらいたり できるよ。</div>
+      つくった ものは <ruby>自動<rt>じどう</rt></ruby>で ほぞんされるよ。左上の 三本線ボタンで あたらしく つくったり、みほんを ひらいたり できるよ。</div>
   </div>
   <button class="bigbtn" id="startBtn">はじめる</button>
 </div></div>
 
 <div class="ov" id="menuOv"><div class="box" style="max-width:440px">
-  <h2>🗂 メニュー</h2>
+  <h2>メニュー</h2>
   <div class="menuBtns">
     <button class="btn" data-m="sample">🎳 みほん「ボウリング」を ひらく</button>
     <button class="btn" data-m="coin">🪙 みほん「コインあつめ」を ひらく</button>
@@ -297,14 +304,14 @@ const BLOCKS = {
   start: { e:'▶️', t:'はじめ',   c:'trig', trig:true },
   tap:   { e:'👆', t:'タップ',   c:'trig', trig:true },
   hit:   { e:'💥', t:'ぶつかる', c:'trig', trig:true },
-  kUp:   { e:'⬆️', t:'ボタン',   c:'trig', trig:true },
-  kDown: { e:'⬇️', t:'ボタン',   c:'trig', trig:true },
-  kLeft: { e:'⬅️', t:'ボタン',   c:'trig', trig:true },
-  kRight:{ e:'➡️', t:'ボタン',   c:'trig', trig:true },
-  mUp:   { e:'⬆️', t:'うえへ',   c:'move' },
-  mDown: { e:'⬇️', t:'したへ',   c:'move' },
-  mLeft: { e:'⬅️', t:'ひだりへ', c:'move' },
-  mRight:{ e:'➡️', t:'みぎへ',   c:'move' },
+  kUp:   { e:'<i class="ar"></i>', t:'ボタン',   c:'trig', trig:true },
+  kDown: { e:'<i class="ar d"></i>', t:'ボタン',   c:'trig', trig:true },
+  kLeft: { e:'<i class="ar l"></i>', t:'ボタン',   c:'trig', trig:true },
+  kRight:{ e:'<i class="ar r"></i>', t:'ボタン',   c:'trig', trig:true },
+  mUp:   { e:'<i class="ar"></i>', t:'うえへ',   c:'move' },
+  mDown: { e:'<i class="ar d"></i>', t:'したへ',   c:'move' },
+  mLeft: { e:'<i class="ar l"></i>', t:'ひだりへ', c:'move' },
+  mRight:{ e:'<i class="ar r"></i>', t:'みぎへ',   c:'move' },
   fwd1:  { e:'👣', t:'まえへ',   c:'move' },
   turn:  { e:'↩️', t:'ふりむく', c:'move' },
   push:  { e:'💨', t:'おす',     c:'move' },
@@ -1019,8 +1026,8 @@ function solidAt(cx, cz, y, self){
 }
 function charaStep(r){
   const f = fwd(r.rot), tx = r.gx + Math.round(f.x), tz = r.gz + Math.round(f.z);
-  if (solidAt(tx, tz, r.it.y, r)){ r.bump = { t:0, dx:f.x, dz:f.z }; SND.bump(); return CFG.BUMP_TIME; }
-  r.mv = { fx:r.gx, fz:r.gz, tx, tz, t:0 }; r.gx = tx; r.gz = tz; SND.step();
+  if (solidAt(tx, tz, r.it.y, r)){ r.bump = { t:0, dx:f.x, dz:f.z }; if (r.it.type==='hito') SND.bump(); return CFG.BUMP_TIME; }
+  r.mv = { fx:r.gx, fz:r.gz, tx, tz, t:0 }; r.gx = tx; r.gz = tz; if (r.it.type==='hito') SND.step();
   return CFG.MOVE_TIME;
 }
 function charaUpdate(r, dt){
