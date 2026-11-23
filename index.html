@@ -34,7 +34,7 @@ button{font-family:inherit;color:inherit}
 #title,.logo{display:flex;align-items:center;white-space:nowrap;line-height:1}
 #title{margin:0 8px;font-size:27px}
 .logo span{display:inline-block;font-weight:700;color:var(--c);transform:rotate(var(--r)) translateY(var(--y));
-  -webkit-text-stroke:5px #2b2d42;paint-order:stroke fill;text-shadow:2px 3px 0 #2b2d42;margin-right:1px;
+  -webkit-text-stroke:6px #fff;paint-order:stroke fill;text-shadow:0 3px 6px rgba(120,140,200,.35);margin-right:1px;
   animation:pop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*40ms)}
 .logo span.d3{font-size:1.12em}
 @keyframes pop{from{transform:scale(0) rotate(-40deg);opacity:0}to{transform:rotate(var(--r)) translateY(var(--y));opacity:1}}
@@ -245,7 +245,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 /* ===== アプリ名ロゴ（ポップ） ===== */
 const APP_NAME = 'プログラミックス3D';
-const LOGO_COLORS = ['#ff4d6d','#ff9f1c','#ffd23f','#2ec4b6','#3b82f6','#9b5de5','#f15bb5','#ff7b00','#06d6a0','#4cc9f0'];
+const LOGO_COLORS = ['#ff4d6d','#ff9f1c','#ffb000','#2ec4b6','#3b82f6','#9b5de5','#f15bb5','#ff7b00','#06d6a0','#4cc9f0'];
 const LOGO_ROT = [-6, 5, -4, 6, -5, 4, -6, 5, -3, 4];
 const LOGO_Y = [0, -2, 1, -1, 2, -2, 1, 0, -2, 1];
 function logoHTML(){
